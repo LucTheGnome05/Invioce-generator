@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Billdrop</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Billdrop</h1>
+    <form id="invoice-form">
+      <!-- Odesílatel (Sender) -->
+      <h3>Sender Information</h3>
+      <input type="text" placeholder="Your Name" name="senderName" required />
+      <input type="text" placeholder="Your Address" name="senderAddress" required />
+      <input type="email" placeholder="Your Email" name="senderEmail" required />
+      <input type="tel" placeholder="Your Phone" name="senderPhone" required />
+      <input type="text" placeholder="Your VAT ID (if applicable)" name="senderVAT" />
+
+      <!-- Příjemce (Client) -->
+      <h3>Client Information</h3>
+      <input type="text" placeholder="Client Name" name="clientName" required />
+      <input type="text" placeholder="Client Address" name="clientAddress" required />
+      <input type="text" placeholder="Client VAT ID (if applicable)" name="clientVAT" />
+
+      <!-- Items (Položky faktury) -->
+      <h3>Items</h3>
+      <div id="items-container">
+        <div class="item">
+          <input type="text" placeholder="Description" name="description[]" required />
+          <input type="number" placeholder="Quantity" name="qty[]" required />
+          <input type="number" placeholder="Unit Price" name="unitPrice[]" required />
+        </div>
+      </div>
+      <button type="button" id="add-item">Add Item</button>
+
+      <!-- Další informace -->
+      <h3>Invoice Details</h3>
+      <input type="number" placeholder="Tax Rate (%)" name="taxRate" required />
+      <input type="date" placeholder="Due Date" name="dueDate" required />
+
+      <button type="submit">Generate Invoice</button>
+    </form>
+    <div id="response"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
